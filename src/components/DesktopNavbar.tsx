@@ -1,13 +1,12 @@
-"use client";
-
 import { BellIcon, HomeIcon, UserIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { SignInButton, useAuth, UserButton, useUser } from "@clerk/nextjs";
 import ModeToggle from "./ModeToggle";
+import { currentUser } from "@clerk/nextjs/server";
 
-function DesktopNavbar() {
-  const { user } = useUser();
+async function DesktopNavbar() {
+  const user = await currentUser();
 
   return (
     <div className="hidden md:flex items-center space-x-4">
