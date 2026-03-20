@@ -14,7 +14,6 @@ import Link from "next/link";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { formatDistanceToNow } from "date-fns";
 import DeleteAlertDialog from "./DeleteAlertDialog";
-import Image from "next/image";
 import { Button } from "./ui/button";
 import {
   HeartIcon,
@@ -23,6 +22,7 @@ import {
   SendIcon,
 } from "lucide-react";
 import { Textarea } from "./ui/textarea";
+import Image from "next/image";
 
 type Posts = Awaited<ReturnType<typeof getPosts>>;
 type Post = Posts[number];
@@ -140,7 +140,7 @@ export default function PostCard({
           {/* POST IMAGE */}
           {post.image && (
             <div className="rounded-lg overflow-hidden">
-              <Image
+              <img
                 src={post.image}
                 alt="Post content"
                 className="w-full h-auto object-cover"
